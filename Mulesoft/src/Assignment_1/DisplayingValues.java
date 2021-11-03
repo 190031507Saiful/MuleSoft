@@ -19,7 +19,8 @@ public class DisplayingValues
             
             // retreiving the Records from the table 
             ResultSet rs = stmt.executeQuery("select * from Movies");
-           
+            System.out.println("Displaying All Values");
+            System.out.println("|Movie\tActor\tActress\tDirector\tYear|");
             while(rs.next()) 
             {
             	String name = rs.getString(1);
@@ -27,8 +28,14 @@ public class DisplayingValues
             	String actress = rs.getString(3);
             	String director = rs.getString(4);
             	int year = rs.getInt(5);
-            	System.out.println("|Movie\tActor\tActress\tDirector\tYear|");
             	System.out.println("|"+name+"\t"+actor+"\t"+actress+"\t"+director+"\t"+year+"|");
+            }
+            ResultSet rs2 = stmt.executeQuery("select name from Movies");
+            System.out.println("Displaying all values of column Name:");
+            while(rs2.next()) 
+            {
+            	String name = rs.getString(1);
+            	System.out.println("|"+name+"|");
             }
                 
         }
